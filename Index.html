@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    body {
+      display: grid;
+      justify-content: center;
+      
+      height: 100vh;
+      margin: 0;
+    }
+    #clickButton {
+        margin-top: 55px;
+      padding: 10px;
+      font-size: 30px;
+      height: 130px;
+
+    }
+  </style>
+</head>
+<body>
+
+<button id="clickButton">Click</button>
+<p>Number of clicks: <span id="clickCount">0</span></p>
+<script>
+  let clickCount = 0;
+  const colors = ['purple', 'yellow', 'blue','orange'];
+  let currentColorIndex = 0;
+  const clickButton = document.getElementById('clickButton');
+  const clickCountElement = document.getElementById('clickCount');
+  clickButton.addEventListener('click', () => {
+    clickCount++;
+    clickCountElement.textContent = clickCount;
+    clickButton.style.backgroundColor = colors[currentColorIndex];
+    currentColorIndex = (currentColorIndex + 1) % colors.length;
+  });
+</script>
+
+</body>
+</html>
